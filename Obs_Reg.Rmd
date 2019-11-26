@@ -3,12 +3,12 @@ title: "Trivago Assignment"
 author: "Hector Bahamonde"
 date: "September, 2019"
 output:
-  pdf_document:
-    toc: no
-  fontsize: 9pt
   html_document:
     toc: yes
     toc_float: yes
+  fontsize: 9pt
+  pdf_document:
+    toc: no
   fig_caption: yes
   theme: cosmo
 ---
@@ -77,7 +77,9 @@ dat <- data.frame(read.spss("/Users/hectorbahamonde/RU/research/Observatorio_Reg
 
 1. Cuan conocido es el Intendente
 ```{r , message=FALSE, warning=FALSE}
+p_load(stringdist)
 conoc.intendente = stringdist(tolower(dat$p6_1), tolower("Juan Manuel Masferrer"), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+table(conoc.intendente)
 ```
 
 2. Cuan conocidos/as son los/las Alcaldes/as
@@ -101,12 +103,15 @@ dat$alcalde <- ifelse(dat$Comuna == "Requínoa", "Nombre Alcalde", NA)
 dat$alcalde <- ifelse(dat$Comuna == "San Vicente", "Nombre Alcalde", NA)
 dat$alcalde <- ifelse(dat$Comuna == "San Fernando", "Nombre Alcalde", NA)
 
-
+p_load(stringdist)
 conoc.alcalde = stringdist(tolower(dat$p6_2), tolower(dat$alcalde), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+
+table(conoc.alcalde)
 ```
 
 3. Cuan conocidos/as son los diputados/as
 ```{r , message=FALSE, warning=FALSE}
+p_load(stringdist)
 conoc.dip = stringdist(tolower(dat$p6_3), tolower(c(
         "JUAN LUIS CASTRO", # D15
         "ISSA KORT", # D15
@@ -118,15 +123,20 @@ conoc.dip = stringdist(tolower(dat$p6_3), tolower(c(
         "ALEJANDRA SEPÚLVEDA",  # D16
         "VIRGINIA TRONCOSO"  # D16
 )), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+
+table(conoc.dip)
 ```
 
 
 4. Cuan conocidos/as son los/las senadores/as
 ```{r , message=FALSE, warning=FALSE}
+p_load(stringdist)
 conoc.sen = stringdist(tolower(dat$p6_4), tolower(c(
         "Alejandro García-Huidobro ", 
         "Juan Pablo Letelier"
         )), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+
+table(conoc.sen)
 ```
 
 
@@ -134,26 +144,113 @@ conoc.sen = stringdist(tolower(dat$p6_4), tolower(c(
 
 ```{r , message=FALSE, warning=FALSE}
 # Reemplazar NA
-dat$T_p9_1[dat$T_p9_1 == "NO SABE"] <- NA; dat$T_p9_1[dat$T_p9_1 == "NO RESPONDE"] <- NA
-dat$T_p9_2[dat$T_p9_2 == "NO SABE"] <- NA; dat$T_p9_2[dat$T_p9_2 == "NO RESPONDE"] <- NA
-dat$T_p9_3[dat$T_p9_3 == "NO SABE"] <- NA; dat$T_p9_3[dat$T_p9_3 == "NO RESPONDE"] <- NA
-dat$T_p9_4[dat$T_p9_4 == "NO SABE"] <- NA; dat$T_p9_4[dat$T_p9_4 == "NO RESPONDE"] <- NA
-dat$T_p9_5[dat$T_p9_5 == "NO SABE"] <- NA; dat$T_p9_5[dat$T_p9_5 == "NO RESPONDE"] <- NA
-dat$T_p9_6[dat$T_p9_6 == "NO SABE"] <- NA; dat$T_p9_6[dat$T_p9_6 == "NO RESPONDE"] <- NA
-dat$T_p9_7[dat$T_p9_7 == "NO SABE"] <- NA; dat$T_p9_7[dat$T_p9_7 == "NO RESPONDE"] <- NA
-dat$T_p9_8[dat$T_p9_8 == "NO SABE"] <- NA; dat$T_p9_8[dat$T_p9_8 == "NO RESPONDE"] <- NA
-dat$T_p9_9[dat$T_p9_9 == "NO SABE"] <- NA; dat$T_p9_9[dat$T_p9_9 == "NO RESPONDE"] <- NA
-dat$T_p9_10[dat$T_p9_10 == "NO SABE"] <- NA; dat$T_p9_10[dat$T_p9_10 == "NO RESPONDE"] <- NA
-dat$T_p9_11[dat$T_p9_11 == "NO SABE"] <- NA; dat$T_p9_11[dat$T_p9_11 == "NO RESPONDE"] <- NA
-dat$T_p9_12[dat$T_p9_12 == "NO SABE"] <- NA; dat$T_p9_12[dat$T_p9_12 == "NO RESPONDE"] <- NA
+dat$T_p9_1 = as.character(dat$T_p9_1)
+dat$T_p9_1[dat$T_p9_1 == "NO SABE"] <- NA
+dat$T_p9_1[dat$T_p9_1 == "NO RESPONDE"] <- NA
+dat$T_p9_1 = as.numeric(dat$T_p9_1)
+
+dat$T_p9_2 = as.character(dat$T_p9_2)
+dat$T_p9_2[dat$T_p9_2 == "NO SABE"] <- NA
+dat$T_p9_2[dat$T_p9_2 == "NO RESPONDE"] <- NA
+dat$T_p9_2 = as.numeric(dat$T_p9_2)
+
+dat$T_p9_3 = as.character(dat$T_p9_3)
+dat$T_p9_3[dat$T_p9_3 == "NO SABE"] <- NA
+dat$T_p9_3[dat$T_p9_3 == "NO RESPONDE"] <- NA
+dat$T_p9_3 = as.numeric(dat$T_p9_3)
+
+dat$T_p9_4 = as.character(dat$T_p9_4)
+dat$T_p9_4[dat$T_p9_4 == "NO SABE"] <- NA
+dat$T_p9_4[dat$T_p9_4 == "NO RESPONDE"] <- NA
+dat$T_p9_4 = as.numeric(dat$T_p9_4)
+
+dat$T_p9_5 = as.character(dat$T_p9_5)
+dat$T_p9_5[dat$T_p9_5 == "NO SABE"] <- NA
+dat$T_p9_5[dat$T_p9_5 == "NO RESPONDE"] <- NA
+dat$T_p9_5 = as.numeric(dat$T_p9_5)
+
+dat$T_p9_6 = as.character(dat$T_p9_6)
+dat$T_p9_6[dat$T_p9_6 == "NO SABE"] <- NA
+dat$T_p9_6[dat$T_p9_6 == "NO RESPONDE"] <- NA
+dat$T_p9_6 = as.numeric(dat$T_p9_6)
+
+dat$T_p9_7 = as.character(dat$T_p9_7)
+dat$T_p9_7[dat$T_p9_7 == "NO SABE"] <- NA
+dat$T_p9_7[dat$T_p9_7 == "NO RESPONDE"] <- NA
+dat$T_p9_7 = as.numeric(dat$T_p9_7)
+
+dat$T_p9_8 = as.character(dat$T_p9_8)
+dat$T_p9_8[dat$T_p9_8 == "NO SABE"] <- NA
+dat$T_p9_8[dat$T_p9_8 == "NO RESPONDE"] <- NA
+dat$T_p9_8 = as.numeric(dat$T_p9_8)
+
+dat$T_p9_9 = as.character(dat$T_p9_9)
+dat$T_p9_9[dat$T_p9_9 == "NO SABE"] <- NA
+dat$T_p9_9[dat$T_p9_9 == "NO RESPONDE"] <- NA
+dat$T_p9_9 = as.numeric(dat$T_p9_9)
+
+dat$T_p9_10 = as.character(dat$T_p9_10)
+dat$T_p9_10[dat$T_p9_10 == "NO SABE"] <- NA
+dat$T_p9_10[dat$T_p9_10 == "NO RESPONDE"] <- NA
+dat$T_p9_10 = as.numeric(dat$T_p9_10)
+
+dat$T_p9_11 = as.character(dat$T_p9_11)
+dat$T_p9_11[dat$T_p9_11 == "NO SABE"] <- NA
+dat$T_p9_11[dat$T_p9_11 == "NO RESPONDE"] <- NA
+dat$T_p9_11 = as.numeric(dat$T_p9_11)
+
+dat$T_p9_12 = as.character(dat$T_p9_12)
+dat$T_p9_12[dat$T_p9_12 == "NO SABE"] <- NA
+dat$T_p9_12[dat$T_p9_12 == "NO RESPONDE"] <- NA
+dat$T_p9_12 = as.numeric(dat$T_p9_12)
 
 
+nota.region.d = data.frame(
+        Promedio = c(
+                mean(dat$T_p9_1, na.rm=T), 
+                mean(dat$T_p9_2, na.rm=T), 
+                mean(dat$T_p9_3, na.rm=T), 
+                mean(dat$T_p9_4, na.rm=T), 
+                mean(dat$T_p9_5, na.rm=T), 
+                mean(dat$T_p9_6, na.rm=T), 
+                mean(dat$T_p9_7, na.rm=T), 
+                mean(dat$T_p9_8, na.rm=T), 
+                mean(dat$T_p9_9, na.rm=T), 
+                mean(dat$T_p9_10, na.rm=T), 
+                mean(dat$T_p9_11, na.rm=T), 
+                mean(dat$T_p9_12, na.rm=T)
+                ),
+        #
+        Pregunta = c(
+                "OPORTUNIDADES DE TRABAJO",
+                "OPORTUNIDADES DE RECREACIÓN Y CULTURA",
+                "POSIBILIDAD DE TENER UN BUEN SUELDO",
+                "ACCESO A SALUD DE CALIDAD",
+                "ACCESO A EDUCACIÓN DE CALIDAD",
+                "POSIBILIDAD DE CONSUMIR O COMPRAR COSAS",
+                "ACCESO A LA VIVIENDA",
+                "ACCESO AL AGUA POTABLE",
+                "TRANSPORTE PÚBLICO",
+                "SEGURIDAD CIUDADANA",
+                "CONTAMINACIÓN DEL AIRE O DEL AGUA",
+                "PARTICIPACIÓN CIUDADANA")
+        )
+
+
+p_load(ggplot2)
+ggplot(nota.region.d, aes(Pregunta, Promedio)) + 
+        geom_col() + 
+        coord_flip() + 
+        xlab("") + 
+        #ylab("Cantidad de Respuestas") + 
+        theme_bw() + 
+        ggtitle("UTILIZANDO UNA ESCALA DE 1 A 7,\nCOMO EN EL COLEGIO, ¿QUÉ NOTA LE\nPONDRÍA USTED A ESTA REGIÓN\nEN MATERIA DE …?")
 
 ```
 
 # Identificacion
 
-1. Mayoria de respondentes se idenfifican con el barrio, no la region.
+1. Mayoria de respondentes se idenfifican con el barrio, no la región.
 
 ```{r , message=FALSE, warning=FALSE}
 p_load(ggplot2)
@@ -193,4 +290,138 @@ ggplot(dat, aes(x=dat$p1_1, fill = dat$p3)) +
         theme_bw() + 
         ggtitle("SI TUVIERA QUE DEFINIR EL LUGAR O TERRITORIO\nDONDE USTED PERTENECE,\n¿QUÉ LUGAR ELEGIRÍA EN PRIMER LUGAR?")
 ```
+
+
+# Nota a Organizaciones
+
+```{r , message=FALSE, warning=FALSE}
+# Reemplazar NA
+dat$T_p12_1 = as.character(dat$T_p12_1)
+dat$T_p12_1[dat$T_p12_1 == "NO SABE"] <- NA
+dat$T_p12_1[dat$T_p12_1 == "NO RESPONDE"] <- NA
+dat$T_p12_1 = as.numeric(dat$T_p12_1)
+
+dat$T_p12_2 = as.character(dat$T_p12_2)
+dat$T_p12_2[dat$T_p12_2 == "NO SABE"] <- NA
+dat$T_p12_2[dat$T_p12_2 == "NO RESPONDE"] <- NA
+dat$T_p12_2 = as.numeric(dat$T_p12_2)
+
+dat$T_p12_3 = as.character(dat$T_p12_3)
+dat$T_p12_3[dat$T_p12_3 == "NO SABE"] <- NA
+dat$T_p12_3[dat$T_p12_3 == "NO RESPONDE"] <- NA
+dat$T_p12_3 = as.numeric(dat$T_p12_3)
+
+dat$T_p12_4 = as.character(dat$T_p12_4)
+dat$T_p12_4[dat$T_p12_4 == "NO SABE"] <- NA
+dat$T_p12_4[dat$T_p12_4 == "NO RESPONDE"] <- NA
+dat$T_p12_4 = as.numeric(dat$T_p12_4)
+
+dat$T_p12_5 = as.character(dat$T_p12_5)
+dat$T_p12_5[dat$T_p12_5 == "NO SABE"] <- NA
+dat$T_p12_5[dat$T_p12_5 == "NO RESPONDE"] <- NA
+dat$T_p12_5 = as.numeric(dat$T_p12_5)
+
+dat$T_p12_6 = as.character(dat$T_p12_6)
+dat$T_p12_6[dat$T_p12_6 == "NO SABE"] <- NA
+dat$T_p12_6[dat$T_p12_6 == "NO RESPONDE"] <- NA
+dat$T_p12_6 = as.numeric(dat$T_p12_6)
+
+
+
+nota.institucion.d = data.frame(
+        Promedio = c(
+                mean(dat$T_p12_1, na.rm=T), 
+                mean(dat$T_p12_2, na.rm=T), 
+                mean(dat$T_p12_3, na.rm=T), 
+                mean(dat$T_p12_4, na.rm=T), 
+                mean(dat$T_p12_5, na.rm=T), 
+                mean(dat$T_p12_6, na.rm=T)
+                ),
+        #
+        Pregunta = c(
+                "EMPRESAS PRIVADAS", 
+                "AUTORIDADES POLÍTICAS", 
+                "FUERZAS ARMADAS Y CARABINEROS",
+                "SERVICIOS PÚBLICOS",
+                "ORGANIZACIONES SOCIALES", 
+                "PARTIDOS POLÍTICOS")
+        )
+
+
+p_load(ggplot2)
+ggplot(nota.institucion.d, aes(Pregunta, Promedio)) + 
+        geom_col() + 
+        coord_flip() + 
+        xlab("") + 
+        #ylab("Cantidad de Respuestas") + 
+        theme_bw() + 
+        ggtitle("EN UNA ESCALA DE 1 A 7, DONDE 1 ES NADA DE CORRUPCIÓN Y 7 ES MUCHA CORRUPCIÓN, ¿CUÁNTA CORRUPCIÓN HAY EN LAS SIGUIENTES ORGANIZACIONES O INSTITUCIONES DE ESTA REGIÓN?")
+
+```
+
+
+# Decidir
+
+```{r , message=FALSE, warning=FALSE}
+dat$p23_1 = as.character(dat$p23_1)
+dat$p23_1[dat$p23_1 == "NO SABE (NO LEER)"] <- NA
+dat$p23_1[dat$p23_1 == "NO RESPONDE (NO LEER)"] <- NA
+dat$p23_1 = as.factor(dat$p23_1)
+
+dat$p23_2 = as.character(dat$p23_2)
+dat$p23_2[dat$p23_2 == "NO SABE (NO LEER)"] <- NA
+dat$p23_2[dat$p23_2 == "NO RESPONDE (NO LEER)"] <- NA
+dat$p23_2 = as.factor(dat$p23_2)
+
+dat$p23_3 = as.character(dat$p23_3)
+dat$p23_3[dat$p23_3 == "NO SABE (NO LEER)"] <- NA
+dat$p23_3[dat$p23_3 == "NO RESPONDE (NO LEER)"] <- NA
+dat$p23_3 = as.factor(dat$p23_3)
+
+dat$p23_4 = as.character(dat$p23_4)
+dat$p23_4[dat$p23_4 == "NO SABE (NO LEER)"] <- NA
+dat$p23_4[dat$p23_4 == "NO RESPONDE (NO LEER)"] <- NA
+dat$p23_4 = as.factor(dat$p23_4)
+
+
+p_load(ggplot2)
+ggplot(dat, aes(p23_1)) + 
+        geom_bar(stat = "count") +
+        coord_flip() + 
+        xlab("") + 
+        ylab("Cantidad") + 
+        theme_bw() + 
+        ggtitle("¿QUÉ CREE USTED QUE DEBIERA SER PRIORITARIO PARA LAS AUTORIDADES DE GOBIERNO?")
+
+
+p_load(ggplot2)
+ggplot(dat, aes(p23_2)) + 
+        geom_bar(stat = "count") +
+        coord_flip() + 
+        xlab("") + 
+        ylab("Cantidad") + 
+        theme_bw() + 
+        ggtitle("¿QUÉ CREE USTED QUE DEBIERA SER PRIORITARIO PARA LAS AUTORIDADES DE GOBIERNO?")
+
+p_load(ggplot2)
+ggplot(dat, aes(p23_3)) + 
+        geom_bar(stat = "count") +
+        coord_flip() + 
+        xlab("") + 
+        ylab("Cantidad") + 
+        theme_bw() + 
+        ggtitle("¿QUÉ CREE USTED QUE DEBIERA SER PRIORITARIO PARA LAS AUTORIDADES DE GOBIERNO?")
+
+
+p_load(ggplot2)
+ggplot(dat, aes(p23_4)) + 
+        geom_bar(stat = "count") +
+        coord_flip() + 
+        xlab("") + 
+        ylab("Cantidad") + 
+        theme_bw() + 
+        ggtitle("¿QUÉ CREE USTED QUE DEBIERA SER PRIORITARIO PARA LAS AUTORIDADES DE GOBIERNO?")
+```
+# Pendiente
+* Interes en la politica (p13) con demograficos.
 
