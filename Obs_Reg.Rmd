@@ -1,0 +1,196 @@
+---
+title: "Trivago Assignment"
+author: "Hector Bahamonde"
+date: "September, 2019"
+output:
+  pdf_document:
+    toc: no
+  fontsize: 9pt
+  html_document:
+    toc: yes
+    toc_float: yes
+  fig_caption: yes
+  theme: cosmo
+---
+
+
+<style type="text/css">
+
+
+html{
+    width:100%;
+    height:100%;
+}
+
+body{ /* Normal  */
+   font-size: 12px;
+   width: 100%;
+   height: 100%;
+}
+td {  /* Table  */
+   font-size: 8px;
+}
+h1 { /* Header 1 */
+ font-size: 28px;
+ color: DarkBlue;
+}
+h2 { /* Header 2 */
+ font-size: 22px;
+ color: DarkBlue;
+}
+h3 { /* Header 3 */
+ font-size: 18px;
+ color: DarkBlue;
+}
+code.r{ /* Code block */
+  font-size: 10px;
+}
+pre { /* Code block */
+  font-size: 10px
+}
+</style>
+
+
+# Presentation
+
+```{r , message=FALSE, warning=FALSE}
+cat("\014")
+rm(list=ls())
+graphics.off()
+
+
+if (!require("pacman")) install.packages("pacman"); library(pacman)
+
+p_load(foreign)
+dat <- data.frame(read.spss("/Users/hectorbahamonde/RU/research/Observatorio_Regional/data.sav"))
+```
+
+
+# Indice de Conocimiento
+
+
+```{r , message=FALSE, warning=FALSE}
+# Ejemplo
+# table(stringdist("Juan Manuel Masferrer", "Juan Manuel Masferrer", method = "lv")) 
+```
+
+
+1. Cuan conocido es el Intendente
+```{r , message=FALSE, warning=FALSE}
+conoc.intendente = stringdist(tolower(dat$p6_1), tolower("Juan Manuel Masferrer"), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+```
+
+2. Cuan conocidos/as son los/las Alcaldes/as
+
+* Pendiente: Bastian poner en "Nombre Alcalde" el primer y el segundo nombre de cada alcalde. Para nombres compuestos, poner nombre compuesto.
+```{r , message=FALSE, warning=FALSE}
+# Corregir nombre de Comunas
+dat$Comuna = trimws(dat$Comuna, which = c("both"), whitespace = "[ \t\r\n]")
+
+# Generar Nombres correctos de Alcaldes
+dat$alcalde <- ifelse(dat$Comuna == "Rancagua", "Eduardo Soto", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Codegua", "Ana María Silva", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Coinco", "Gregorio Valenzuela", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Coltauco", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Doñihue", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Graneros", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Machalí", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Mostazal", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Rengo", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "Requínoa", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "San Vicente", "Nombre Alcalde", NA)
+dat$alcalde <- ifelse(dat$Comuna == "San Fernando", "Nombre Alcalde", NA)
+
+
+conoc.alcalde = stringdist(tolower(dat$p6_2), tolower(dat$alcalde), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+```
+
+3. Cuan conocidos/as son los diputados/as
+```{r , message=FALSE, warning=FALSE}
+conoc.dip = stringdist(tolower(dat$p6_3), tolower(c(
+        "JUAN LUIS CASTRO", # D15
+        "ISSA KORT", # D15
+        "JAVIER MACAYA", # D15
+        "DIEGO SCHALPER", # D15
+        "RAÚL SOTO", # D15
+        "RAMÓN BARROS", # D16
+        "COSME MELLADO",  # D16 
+        "ALEJANDRA SEPÚLVEDA",  # D16
+        "VIRGINIA TRONCOSO"  # D16
+)), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+```
+
+
+4. Cuan conocidos/as son los/las senadores/as
+```{r , message=FALSE, warning=FALSE}
+conoc.sen = stringdist(tolower(dat$p6_4), tolower(c(
+        "Alejandro García-Huidobro ", 
+        "Juan Pablo Letelier"
+        )), method = "lv") # gente que respondio correctamente: "Indice de Incorrectness"
+```
+
+
+# Nota a Materias Regionales
+
+```{r , message=FALSE, warning=FALSE}
+# Reemplazar NA
+dat$T_p9_1[dat$T_p9_1 == "NO SABE"] <- NA; dat$T_p9_1[dat$T_p9_1 == "NO RESPONDE"] <- NA
+dat$T_p9_2[dat$T_p9_2 == "NO SABE"] <- NA; dat$T_p9_2[dat$T_p9_2 == "NO RESPONDE"] <- NA
+dat$T_p9_3[dat$T_p9_3 == "NO SABE"] <- NA; dat$T_p9_3[dat$T_p9_3 == "NO RESPONDE"] <- NA
+dat$T_p9_4[dat$T_p9_4 == "NO SABE"] <- NA; dat$T_p9_4[dat$T_p9_4 == "NO RESPONDE"] <- NA
+dat$T_p9_5[dat$T_p9_5 == "NO SABE"] <- NA; dat$T_p9_5[dat$T_p9_5 == "NO RESPONDE"] <- NA
+dat$T_p9_6[dat$T_p9_6 == "NO SABE"] <- NA; dat$T_p9_6[dat$T_p9_6 == "NO RESPONDE"] <- NA
+dat$T_p9_7[dat$T_p9_7 == "NO SABE"] <- NA; dat$T_p9_7[dat$T_p9_7 == "NO RESPONDE"] <- NA
+dat$T_p9_8[dat$T_p9_8 == "NO SABE"] <- NA; dat$T_p9_8[dat$T_p9_8 == "NO RESPONDE"] <- NA
+dat$T_p9_9[dat$T_p9_9 == "NO SABE"] <- NA; dat$T_p9_9[dat$T_p9_9 == "NO RESPONDE"] <- NA
+dat$T_p9_10[dat$T_p9_10 == "NO SABE"] <- NA; dat$T_p9_10[dat$T_p9_10 == "NO RESPONDE"] <- NA
+dat$T_p9_11[dat$T_p9_11 == "NO SABE"] <- NA; dat$T_p9_11[dat$T_p9_11 == "NO RESPONDE"] <- NA
+dat$T_p9_12[dat$T_p9_12 == "NO SABE"] <- NA; dat$T_p9_12[dat$T_p9_12 == "NO RESPONDE"] <- NA
+
+
+
+```
+
+# Identificacion
+
+1. Mayoria de respondentes se idenfifican con el barrio, no la region.
+
+```{r , message=FALSE, warning=FALSE}
+p_load(ggplot2)
+ggplot(dat, aes(x=dat$p1_1)) + 
+        geom_bar(stat = "count") +
+        coord_flip() +
+        xlab("") + 
+        ylab("Cantidad de Respuestas") + 
+        theme_bw() + 
+        ggtitle("SI TUVIERA QUE DEFINIR EL LUGAR O TERRITORIO\nDONDE USTED PERTENECE,\n¿QUÉ LUGAR ELEGIRÍA EN PRIMER LUGAR?")
+```
+
+
+2. La mayoria de los respondentes no quiere cambiarse
+
+```{r , message=FALSE, warning=FALSE}
+p_load(ggplot2)
+ggplot(dat, aes(x=dat$p3)) + 
+        geom_bar(stat = "count") +
+        #coord_flip() +
+        xlab("") + 
+        ylab("Cantidad de Respuestas") + 
+        theme_bw() + 
+        ggtitle("¿LE GUSTARÍA CAMBIARSE O IRSE A VIVIR A OTRO LUGAR?")
+```
+
+
+3. Quienes se identifican con unidades mas pequenas, no se quieren cambiar a vivir a otro lugar (p3)
+
+```{r , message=FALSE, warning=FALSE}
+p_load(ggplot2)
+ggplot(dat, aes(x=dat$p1_1, fill = dat$p3)) + 
+        geom_bar(stat = "count") +
+        coord_flip() +
+        xlab("") + 
+        ylab("Cantidad de Respuestas") + 
+        theme_bw() + 
+        ggtitle("SI TUVIERA QUE DEFINIR EL LUGAR O TERRITORIO\nDONDE USTED PERTENECE,\n¿QUÉ LUGAR ELEGIRÍA EN PRIMER LUGAR?")
+```
+
