@@ -425,3 +425,19 @@ ggplot(dat, aes(p23_4)) +
 # Pendiente
 * Interes en la politica (p13) con demograficos.
 
+
+# Focalizarse en apoyo a la democracia/dictadura: optica seria apoyo intervencion militar en tiempos de crisis
+
+dat$p36 : apoyo a la democracia 
+
+
+dat$T_p25_5: aporte de partidos a la region
+dat$p37 : confianza en las personas
+dat$p44 : edad
+dat$p3 : cambiarse a otro lugar
+dat$p23_1 : estado/mercado
+dat$p16 : conflicto = dejar que pase / evitarlos
+dat$GSE : GSE
+
+interacciones = confianza y edad
+
