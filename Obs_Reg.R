@@ -73,7 +73,7 @@ dat$GSE = c(5:1)[as.numeric(dat$GSE)]
 # Modelo
 ####################################################################################
 
-p_load(zeligverse)
+p_load(zeligverse,MCMCpack)
 
 z.out1 <- zelig(as.factor(p36) ~ # demo/dicta
                   T_p25_5 + # aporte de partidos a la region (poco a mucho)
@@ -195,7 +195,6 @@ s.out.confianza <- sim(z.out1, x =  x.desconfianza, x1 =  x.confianza, num = n.s
 # comment: (distribution plots) la confianza sube las preferencias en la democracia. la desconfianza sube la indiferencia y actitudes no-democraticas.
 # Esto es especialmente importante donde la gran mayoria no confia en las personas.
 table(dat$p37)
-
 
 
 # ds
