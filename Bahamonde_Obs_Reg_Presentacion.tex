@@ -291,7 +291,7 @@
 \end{frame}
 
 
-\begin{frame}{Motivaci\'on: ¿Por qu\'e es importante pensar el nivel de apoyo a la democr\'acia? ¿Y qu\'e tiene que ver con la crisis?}
+\begin{frame}{¿Por qu\'e es importante pensar el nivel de apoyo a la democr\'acia? ¿Y qu\'e tiene que ver con la crisis?}
 
   \begin{itemize}
     \item En teor\'ia, las democracias debieran hacer muchas cosas. Ej., distribuir el ingreso.\\
@@ -328,24 +328,6 @@
 \end{frame}
 
 
-\subsection{T\'ecnico}
-
-\begin{frame}{Modelo Log\'istico Multinomial}
-
-  \begin{equation*}
-  Y_{i} = \text{Multinomial}(y_{i}|\pi_{ij})
-  \end{equation*}
-
-  donde,
-
-  \begin{equation*}
-  \pi_{ij} = \frac{\text{exp}(x_{i}\beta_{j})}{\sum_{k=1}^{J}\text{exp}(x_{i}\beta_{k})}
-  \end{equation*}
-
-  {\color{red}pendiente: agregar formula}
-
-\end{frame}
-
 
 \subsection{Variable Dependiente}
 
@@ -354,6 +336,34 @@
         \centering
         \includegraphics[width=1\linewidth]{/Users/hectorbahamonde/RU/research/Observatorio_Regional/vd.pdf}
     %\end{minipage}
+\end{frame}
+
+
+
+\subsection{T\'ecnico}
+
+\begin{frame}{Modelo Log\'istico Multinomial}
+
+  \begin{equation*}
+  \begin{aligned}
+  %\pi_{ij} & = \frac{\text{exp}(x_{i}\beta_{j})}{\sum_{k=1}^{J}\text{exp}(x_{i}\beta_{k})}\\
+  \pmb{\pi}_{ij} & = \pmb{\beta}_{j} \cdot \pmb{x}_{i}
+  \end{aligned}
+\end{equation*}
+  
+\begin{itemize}
+  \item donde $\pi_{ij}$ es la probabilidad de que el sujeto $i$ tenga una preferencia de r\'egimen pol\'itico $j$,
+  \item y donde $\pmb{x}$ = 
+    \begin{enumerate}
+        \item tendencia a cambiarse de regi\'on.
+        \item confianza inter-personal.
+        \item aceptaci\'on del conflicto.
+        \item edad.
+        \item grupo socio-econ\'omico.
+        \item preferencias hacia la redistribuci\'on econ\'omica.
+    \end{enumerate}
+\end{itemize}
+
 \end{frame}
 
 
@@ -383,7 +393,7 @@ Los Rancag\"uinos:
   \begin{enumerate}
   	\item quieren a los partidos lejos de la pol\'itica: {\color{red}peligro populista}.
   	\item creen que la democracia es preferible cuando los partidos pol\'iticos aportan poco a la regi\'on.
-  	\item no asocian partidos con democracia.
+  	\item no asocian partidos pol\'iticos con democracia.
   \end{enumerate}
 \end{frame}
 
@@ -491,7 +501,7 @@ Los Rancag\"uinos:
     \item Rancag\"uinos est\'an sufriendo una crisis estructural grave de representaci\'on pol\'itica.
     \item Rancag\"uinos no ven en la democracia un catalizador v\'alido de demandas sociales, pol\'iticas y econ\'omicas.
     \item Rancag\"uinos se sienten muy identificados con su region (p\'ublico), pero muy desapegados del mundo pol\'itico (p\'ublico), como es el caso de los j\'ovenes.
-    \item Rancag\"uinos no creen que el sistema de partidos actual pueda liderar el proceso de reconfiguraci\'on socio-econ\'omica.
+    %\item Rancag\"uinos no creen que el sistema de partidos actual pueda liderar el proceso de reconfiguraci\'on socio-econ\'omica.
 \end{enumerate}
 
 \end{frame}
