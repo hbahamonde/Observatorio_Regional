@@ -116,7 +116,7 @@ ggplot(dat, aes(x=dat$p36)) +
   xlab("") + 
   ylab("Frecuencia") + 
   theme_bw() + 
-  ggtitle("¿Con cuál de las siguientes frases acerca de la democracia\nusted está más de acuerdo?") +
+  ggtitle("¿Con cuál de las siguientes frases acerca\nde la democracia usted está más de acuerdo?") +
   theme(axis.text.y = element_text(size=25), 
         axis.text.x = element_text(size=13), 
         axis.title.y = element_text(size=20), 
@@ -124,7 +124,7 @@ ggplot(dat, aes(x=dat$p36)) +
         legend.text=element_text(size=20), 
         legend.title=element_text(size=0), 
         legend.position = "bottom",
-        plot.title = element_text(size = 20)) +   
+        plot.title = element_text(size = 18)) +   
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/vd.pdf")
 
 ####################################################################################
@@ -520,7 +520,7 @@ ggplot(data=edad.sim.d) +
         plot.title = element_text(size = 20),
         strip.text.x = element_text(size = 20),
         legend.spacing.x = unit(1.0, 'cm')) +   
-  labs(title="Grupo Etáreo") +
+  labs(title="Grupo Etario") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/edad.pdf")
 
 
