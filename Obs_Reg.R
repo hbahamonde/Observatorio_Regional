@@ -116,7 +116,7 @@ ggplot(dat, aes(x=dat$p36)) +
   xlab("") + 
   ylab("Frecuencia") + 
   theme_bw() + 
-  ggtitle("¿Con cuál de las siguientes frases acerca\nde la democracia usted está más de acuerdo?") +
+  ggtitle("¿Con cuál de las siguientes frases\nusted está más de acuerdo?") +
   theme(axis.text.y = element_text(size=25), 
         axis.text.x = element_text(size=13), 
         axis.title.y = element_text(size=20), 
@@ -170,17 +170,17 @@ ggplot(data=aporte.partidos.sim.d) +
   geom_density(aes(x=Valor.Esperado, fill=Aporte.Partidos), alpha=0.5) + 
   facet_grid(~Tendencia) + 
   theme_bw() +
-  theme(axis.text.y = element_text(size=25), 
-        axis.text.x = element_text(size=13), 
-        axis.title.y = element_text(size=20), 
-        axis.title.x = element_text(size=20), 
-        legend.text=element_text(size=20), 
-        legend.title=element_text(size=0), 
-        legend.position = "bottom",
-        plot.title = element_text(size = 20),
-        strip.text.x = element_text(size = 20),
-        legend.spacing.x = unit(1.0, 'cm')) +   
-  labs(title="¿Cuánto aporta al desarrollo de esta región los partidos políticos?") +
+        theme(axis.text.y = element_text(size=5), 
+              axis.text.x = element_text(size=13), 
+              axis.title.y = element_text(size=5), 
+              axis.title.x = element_text(size=20), 
+              legend.text=element_text(size=20), 
+              legend.title=element_text(size=0), 
+              legend.position = "bottom",
+              plot.title = element_text(size = 20),
+              strip.text.x = element_text(size = 20),
+              legend.spacing.x = unit(1.0, 'cm')) +   
+        labs(title="¿Cuánto aporta al desarrollo de esta región los partidos políticos?") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/aporte_partidos.pdf")
   
 
@@ -228,17 +228,17 @@ ggplot(data=confianza.personas.sim.d) +
   geom_density(aes(x=Valor.Esperado, fill=Nivel.Confianza), alpha=0.5) + 
   facet_grid(~Tendencia) + 
   theme_bw() +
-  theme(axis.text.y = element_text(size=25), 
-        axis.text.x = element_text(size=13), 
-        axis.title.y = element_text(size=20), 
-        axis.title.x = element_text(size=20), 
-        legend.text=element_text(size=20), 
-        legend.title=element_text(size=0), 
-        legend.position = "bottom",
-        plot.title = element_text(size = 20),
-        strip.text.x = element_text(size = 20),
-        legend.spacing.x = unit(1.0, 'cm')) +  
-  labs(title="Ud. diría que en general, se puede/no se puede confiar en las personas.") +
+        theme(axis.text.y = element_text(size=5), 
+              axis.text.x = element_text(size=13), 
+              axis.title.y = element_text(size=5), 
+              axis.title.x = element_text(size=20), 
+              legend.text=element_text(size=20), 
+              legend.title=element_text(size=0), 
+              legend.position = "bottom",
+              plot.title = element_text(size = 20),
+              strip.text.x = element_text(size = 20),
+              legend.spacing.x = unit(1.0, 'cm')) +   
+        labs(title="Ud. diría que en general, se puede/no se puede confiar en las personas.") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/confianza_interpersonal.pdf")
 
 ####################################################################################
@@ -283,17 +283,17 @@ ggplot(data=cambiarse.sim.d) +
   geom_density(aes(x=Valor.Esperado, fill=Tendencia.Cambiarse), alpha=0.5) + 
   facet_grid(~Tendencia) + 
   theme_bw() +
-  theme(axis.text.y = element_text(size=25), 
-        axis.text.x = element_text(size=13), 
-        axis.title.y = element_text(size=20), 
-        axis.title.x = element_text(size=20), 
-        legend.text=element_text(size=20), 
-        legend.title=element_text(size=0), 
-        legend.position = "bottom",
-        plot.title = element_text(size = 20),
-        strip.text.x = element_text(size = 20),
-        legend.spacing.x = unit(1.0, 'cm')) +   
-  labs(title="¿Le gustaría cambiarse o irse a vivir a otro lugar?") +
+        theme(axis.text.y = element_text(size=5), 
+              axis.text.x = element_text(size=13), 
+              axis.title.y = element_text(size=5), 
+              axis.title.x = element_text(size=20), 
+              legend.text=element_text(size=20), 
+              legend.title=element_text(size=0), 
+              legend.position = "bottom",
+              plot.title = element_text(size = 20),
+              strip.text.x = element_text(size = 20),
+              legend.spacing.x = unit(1.0, 'cm')) +   
+        labs(title="¿Le gustaría cambiarse o irse a vivir a otro lugar?") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/cambiarse.pdf")
   
 
@@ -338,17 +338,17 @@ ggplot(data=redistribucion.sim.d) +
   geom_density(aes(x=Valor.Esperado, fill=Tendencia.Redistribuir), alpha=0.5) + 
   facet_grid(~Tendencia) + 
   theme_bw() +
-  theme(axis.text.y = element_text(size=25), 
-        axis.text.x = element_text(size=13), 
-        axis.title.y = element_text(size=20), 
-        axis.title.x = element_text(size=20), 
-        legend.text=element_text(size=20), 
-        legend.title=element_text(size=0), 
-        legend.position = "bottom",
-        plot.title = element_text(size = 20),
-        strip.text.x = element_text(size = 20),
-        legend.spacing.x = unit(1.0, 'cm')) +  
-  labs(title="¿Cree usted que debiera ser prioritario impulsar el crecimiento económico o reducir las desigualdades?") +
+        theme(axis.text.y = element_text(size=5), 
+              axis.text.x = element_text(size=13), 
+              axis.title.y = element_text(size=5), 
+              axis.title.x = element_text(size=20), 
+              legend.text=element_text(size=20), 
+              legend.title=element_text(size=0), 
+              legend.position = "bottom",
+              plot.title = element_text(size = 20),
+              strip.text.x = element_text(size = 20),
+              legend.spacing.x = unit(1.0, 'cm')) +   
+        labs(title="¿Cree usted que debiera ser prioritario impulsar el crecimiento\neconómico o reducir las desigualdades?") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/redistribucion.pdf")
   
 
@@ -393,17 +393,17 @@ ggplot(data=conflicto.sim.d) +
   geom_density(aes(x=Valor.Esperado, fill=Evitar.Conflictos), alpha=0.5) + 
   facet_grid(~Tendencia) + 
   theme_bw() +
-  theme(axis.text.y = element_text(size=25), 
-        axis.text.x = element_text(size=13), 
-        axis.title.y = element_text(size=20), 
-        axis.title.x = element_text(size=20), 
-        legend.text=element_text(size=20), 
-        legend.title=element_text(size=0), 
-        legend.position = "bottom",
-        plot.title = element_text(size = 20),
-        strip.text.x = element_text(size = 20),
-        legend.spacing.x = unit(1.0, 'cm')) + 
-  labs(title="Cuando se producen conflictos, ¿se debiera dejar que se muestren o tratar de eviarlos?") +
+        theme(axis.text.y = element_text(size=5), 
+              axis.text.x = element_text(size=13), 
+              axis.title.y = element_text(size=5), 
+              axis.title.x = element_text(size=20), 
+              legend.text=element_text(size=20), 
+              legend.title=element_text(size=0), 
+              legend.position = "bottom",
+              plot.title = element_text(size = 20),
+              strip.text.x = element_text(size = 20),
+              legend.spacing.x = unit(1.0, 'cm')) +   
+        labs(title="Cuando se producen conflictos, ¿se debiera dejar que se muestren o tratar de eviarlos?") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/conflicto.pdf")
 
 
@@ -455,17 +455,17 @@ ggplot(data=GSE.sim.d) +
   geom_density(aes(x=Valor.Esperado, fill=GSE), alpha=0.5) + 
   facet_grid(~Tendencia) + 
   theme_bw() +
-  theme(axis.text.y = element_text(size=25), 
-        axis.text.x = element_text(size=13), 
-        axis.title.y = element_text(size=20), 
-        axis.title.x = element_text(size=20), 
-        legend.text=element_text(size=20), 
-        legend.title=element_text(size=0), 
-        legend.position = "bottom",
-        plot.title = element_text(size = 20),
-        strip.text.x = element_text(size = 20),
-        legend.spacing.x = unit(1.0, 'cm')) +  
-  labs(title="Grupo Socio Económico") +
+        theme(axis.text.y = element_text(size=5), 
+              axis.text.x = element_text(size=13), 
+              axis.title.y = element_text(size=5), 
+              axis.title.x = element_text(size=20), 
+              legend.text=element_text(size=20), 
+              legend.title=element_text(size=0), 
+              legend.position = "bottom",
+              plot.title = element_text(size = 20),
+              strip.text.x = element_text(size = 20),
+              legend.spacing.x = unit(1.0, 'cm')) +   
+        labs(title="Grupo Socio Económico") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/gse.pdf")
 
 
@@ -510,17 +510,17 @@ ggplot(data=edad.sim.d) +
   geom_density(aes(x=Valor.Esperado, fill=Edad), alpha=0.5) + 
   facet_grid(~Tendencia) + 
   theme_bw() +
-  theme(axis.text.y = element_text(size=25), 
-        axis.text.x = element_text(size=13), 
-        axis.title.y = element_text(size=20), 
-        axis.title.x = element_text(size=20), 
-        legend.text=element_text(size=20), 
-        legend.title=element_text(size=0), 
-        legend.position = "bottom",
-        plot.title = element_text(size = 20),
-        strip.text.x = element_text(size = 20),
-        legend.spacing.x = unit(1.0, 'cm')) +   
-  labs(title="Grupo Etario") +
+        theme(axis.text.y = element_text(size=5), 
+              axis.text.x = element_text(size=13), 
+              axis.title.y = element_text(size=5), 
+              axis.title.x = element_text(size=20), 
+              legend.text=element_text(size=20), 
+              legend.title=element_text(size=0), 
+              legend.position = "bottom",
+              plot.title = element_text(size = 20),
+              strip.text.x = element_text(size = 20),
+              legend.spacing.x = unit(1.0, 'cm')) +   
+        labs(title="Grupo Etario") +
   ggsave("/Users/hectorbahamonde/RU/research/Observatorio_Regional/edad.pdf")
 
 
