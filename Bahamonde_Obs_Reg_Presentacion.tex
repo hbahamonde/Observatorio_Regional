@@ -277,27 +277,28 @@
 
 
 \section{Motivaci\'on}
-\subsection{Motivaci\'on}
+\subsection{Introducci\'on}
 
-\begin{frame}{Motivaci\'on}
+\begin{frame}{Introducci\'on}
 
   \begin{itemize}
     \item Haber tenido datos post-crisis hubiera sido potente.
     \item Sin embargo, tener datos pre-crisis podr\'ia dar se\~nales de las posibles causas de la crisis.\pause
-    \item En esta presentaci\'on pensaremos sobre ciertas actitudes de los habitantes de la regi\'on (HDLR): ¿son los HDLR m\'as {\bf democr\'aticos} o m\'as {\bf autoritarios}?
+    \item En esta presentaci\'on pensaremos acerca de si los habitantes de la regi\'on (HDLR) \emph{son m\'as {\bf democr\'aticos} o m\'as {\bf autoritarios}}.
     \item Presentar\'e algunas asociaciones estad\'isticas entre estas actitudes, y otras variables.
-    \item Esto podr\'ia dar ciertas se\~nales de una sintomatolog\'ia pre-crisis.
+    %\item Esto podr\'ia dar ciertas se\~nales de una sintomatolog\'ia pre-crisis.
   \end{itemize}
 \end{frame}
+
+
+\subsection{Motivaci\'on}
 
 
 \begin{frame}{¿Por qu\'e es importante pensar el nivel de apoyo a la democracia? ¿Y qu\'e tiene que ver con la crisis?}
 
   \begin{itemize}
-    \item En teor\'ia, las democracias debieran hacer muchas cosas. Ej., distribuir el ingreso.\\
-    {\tiny Soci\'ologos pol\'iticos: ``Las elecciones son la expresi\'on democr\'atica de la lucha de clases''.}\pause
-    \item[$\checkmark$] A trav\'es de elecciones, votantes debieran escoger candidatos que (entre otras cosas) prometan la re-distribuci\'on del ingreso (a trav\'es de pol\'iticas fiscales y otras pol\'iticas p\'ublicas).\pause
-    \item En esta presentaci\'on, veremos que el sistema pol\'itico ha fracasado completamente en esta labor, {\bf se\~nalando un prolongado malestar pol\'itico y social}.
+    \item {\bf Sociolog\'ia pol\'itica}: las democracias debieran hacer muchas cosas, entre ellas, re-distribuir el ingreso (a trav\'es de pol\'iticas fiscales y otras pol\'iticas p\'ublicas).\pause
+    \item En esta presentaci\'on, veremos que los HDLR no lo ven de esta manera, posiblemente, {\bf se\~nalando un prolongado malestar pol\'itico y social}.
   \end{itemize}
 \end{frame}
 
@@ -309,8 +310,9 @@
 \begin{frame}{Metodolog\'ia}
 
   \begin{itemize}
-    \item Usando los mismos datos, estim\'e un modelo log\'istico multinomial (para variables categ\'oricas sin orden). La {\bf variable dependiente} es si el \emph{respondente} tiene una tendencia \emph{autoritaria}, \emph{democratica}, o es \emph{indiferente} al tipo de r\'egimen.
-    \item Se ocuparon t\'ecnicas de simulaci\'on estad\'istica.
+    \item Usando los mismos datos, estim\'e un modelo log\'istico multinomial (para variables categ\'oricas sin orden). 
+    \item La {\bf variable dependiente} es si el \emph{respondente} tiene una tendencia \emph{autoritaria}, \emph{democratica}, o es \emph{indiferente} al tipo de r\'egimen.
+    %\item Se ocuparon t\'ecnicas de simulaci\'on estad\'istica.
     %\item Cruc\'e Esto lo cruc\'e con distintos factores.
     %\item Formula:
   \end{itemize}
@@ -359,13 +361,72 @@
         \item confianza inter-personal.
         \item aceptaci\'on del conflicto.
         \item edad.
-        \item grupo socio-econ\'omico.
         \item preferencias hacia la redistribuci\'on econ\'omica.
         \item aporte de partidos politicos a la regi\'on.
+        \item grupo socio-econ\'omico.
     \end{enumerate}
 \end{itemize}
 
 \end{frame}
+
+
+
+\miniframesoff
+
+\begin{frame}{Modelo Log\'istico Multinomial}
+
+  \begin{equation*}
+  \begin{aligned}
+  %\pi_{ij} & = \frac{\text{exp}(x_{i}\beta_{j})}{\sum_{k=1}^{J}\text{exp}(x_{i}\beta_{k})}\\
+  \pmb{\pi}_{ij} & = \pmb{\beta}_{j} \cdot \pmb{x}_{i}
+  \end{aligned}
+\end{equation*}
+  
+\begin{itemize}
+  \item donde $\pi_{ij}$ es la probabilidad de que el sujeto $i$ tenga una preferencia de r\'egimen pol\'itico $j$,
+  \item y donde $\pmb{x}$ = 
+    \begin{enumerate}
+        \item tendencia a cambiarse de regi\'on.
+        \item confianza inter-personal.
+        \item aceptaci\'on del conflicto.
+        \item edad.
+        \item preferencias hacia la redistribuci\'on econ\'omica.
+        \item {\bf {\color{red}aporte de partidos politicos a la regi\'on}}.
+        \item grupo socio-econ\'omico.
+    \end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Modelo Log\'istico Multinomial}
+
+  \begin{equation*}
+  \begin{aligned}
+  %\pi_{ij} & = \frac{\text{exp}(x_{i}\beta_{j})}{\sum_{k=1}^{J}\text{exp}(x_{i}\beta_{k})}\\
+  \pmb{\pi}_{ij} & = \pmb{\beta}_{j} \cdot \pmb{x}_{i}
+  \end{aligned}
+\end{equation*}
+  
+\begin{itemize}
+  \item donde $\pi_{ij}$ es la probabilidad de que el sujeto $i$ tenga una preferencia de r\'egimen pol\'itico $j$,
+  \item y donde $\pmb{x}$ = 
+    \begin{enumerate}
+        \item tendencia a cambiarse de regi\'on.
+        \item confianza inter-personal.
+        \item aceptaci\'on del conflicto.
+        \item edad.
+        \item preferencias hacia la redistribuci\'on econ\'omica.
+        \item aporte de partidos politicos a la regi\'on.
+        \item {\bf {\color{red}grupo socio-econ\'omico}}.
+      \end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+
+\miniframeson
+
 
 
 \section{Pol\'itica y Econom\'ia}
@@ -392,9 +453,9 @@
 
 Los HDLR: 
   \begin{enumerate}
-  	\item quieren a los partidos lejos de la pol\'itica: {\color{red}peligro populista}.
+    \item no asocian partidos pol\'iticos con democracia.
+  	\item quieren a los partidos lejos de la pol\'itica: peligro populista?
   	%\item creen que la democracia es preferible cuando los partidos pol\'iticos aportan poco a la regi\'on.
-  	\item no asocian partidos pol\'iticos con democracia.
   \end{enumerate}
 \end{frame}
 
@@ -432,76 +493,16 @@ Los HDLR:
 
 
 
-
-% Redistribuci\'on
-
-\subsection{Resultados estad\'isticos}
-
-\begin{frame}{Redistribuci\'on}
-    %\begin{minipage}{.7\linewidth}
-        \centering
-        \includegraphics[width=0.98\linewidth]{/Users/hectorbahamonde/RU/research/Observatorio_Regional/redistribucion.pdf}
-    %\end{minipage}
-\end{frame}
-
-\subsection{Interpretaci\'on}
-
-\begin{frame}{Redistribuci\'on}
-  \begin{itemize}
-    \item De hecho, podemos confirmar que tendencias autoritarias, democr\'aticas o indiferentes, no \emph{separan} a los HDLR, al momento de cruzar estas actitudes con preferencias hacia la redistribuci\'on de ingresos.
-  \end{itemize}
-
-Los HDLR: 
-  \begin{enumerate}
-  	\item no creen que la pol\'itica sea \'util para redistribuir ingresos.
-  	\item podr\'ian creer (y sentirse plenamente c\'omodos) que la distribuci\'on pueda tomar lugar bajo cualquier tipo de r\'egimen pol\'itico (incluido una dictadura).
-  \end{enumerate}
-
-  \begin{itemize}
-  	\item {\bf M\'as evidencia para creer que el {\color{red}sistema pol\'itico fracas\'o} en su {\color{red}labor redistributiva}, lo que llev\'o al {\color{red}colapso infraestructural de octubre}}.
-  \end{itemize}
-\end{frame}
-
-
-\section{Socio-Demogr\'afico}
-
-
-% Edad
-
-\subsection{Resultados estad\'isticos}
-
-\begin{frame}{Edad}
-    %\begin{minipage}{.7\linewidth}
-        \centering
-        \includegraphics[width=0.98\linewidth]{/Users/hectorbahamonde/RU/research/Observatorio_Regional/edad.pdf}
-    %\end{minipage}
-\end{frame}
-
-\subsection{Interpretaci\'on}
-
-\begin{frame}{Edad}
-  \begin{itemize}
-    \item Los j\'ovenes no valoran sistem\'aticamente m\'as la democracia, y tienden a ser m\'as indiferentes.
-  \end{itemize}
-
-
-Los HDLR: 
-  \begin{enumerate}
-  	\item j\'ovenes, los nuevos potenciales votantes, no ven la pol\'itica como algo atractivo, se\~nalando una desiluci\'on estructural con lo p\'ublico/democr\'atico.
-  \end{enumerate}
-\end{frame}
-
-
 \section{Discusi\'on}
 
 
 \subsection{Discusi\'on}
 
-\begin{frame}{Conclusiones Preliminares: \underline{Panorama no es alentador}}
+\begin{frame}{Conclusiones Preliminares: \underline{Panorama no es muy alentador}}
 
 Los HDLR:
   \begin{enumerate}
-    \item est\'an sufriendo una crisis estructural grave de representaci\'on pol\'itica.
+    \item est\'an sufriendo una crisis estructural de representaci\'on pol\'itica.
     \item no ven en la democracia un catalizador v\'alido de demandas sociales, pol\'iticas y econ\'omicas.
     %\item se sienten muy identificados con su regi\'on (p\'ublico), pero muy desapegados del mundo pol\'itico (p\'ublico), como es el caso de los j\'ovenes.
     %\item Los HDLR no creen que el sistema de partidos actual pueda liderar el proceso de reconfiguraci\'on socio-econ\'omica.
